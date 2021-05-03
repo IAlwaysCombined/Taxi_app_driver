@@ -2,9 +2,10 @@ package com.example.taxi_app_driver
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.taxi_app_driver.activity.AuthActivity
 import com.example.taxi_app_driver.databinding.ActivityMainBinding
-import com.example.taxi_app_driver.uitlities.APP_ACTIVITY
-import com.example.taxi_app_driver.uitlities.initFirebase
+import com.example.taxi_app_driver.models.User
+import com.example.taxi_app_driver.uitlities.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,5 +21,29 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         initFirebase()
+        initFields()
+        initFunc()
+    }
+
+    private fun initFields(){
+        initUser()
+        initFirebase()
+    }
+
+    private fun initFunc(){
+        if (AUTH.currentUser != null) {
+            //replaceFragment(MapsFragment())
+        }
+        else{
+            replaceActivity(AuthActivity())
+        }
+    }
+
+    //Initial Users
+    private fun initUser() {
+        REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
+            .addListenerForSingleValueEvent(AppValueEventListener {
+                USER = it.getValue(User::class.java) ?: User()
+            })
     }
 }

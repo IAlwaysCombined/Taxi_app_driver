@@ -41,7 +41,7 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
     private val permissionCode = 101
 
     lateinit var locationCallback: LocationCallback
-    val cityname = ""
+
 
     private lateinit var  slidingPaneLayout: SlidingPaneLayout
     private lateinit var autocompleteSupportFragment: AutocompleteSupportFragment
@@ -59,7 +59,6 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
     ): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
         val root = layoutInflater.inflate(R.layout.fragment_maps, container, false )
-        initView(root)
         init()
     }
 
@@ -70,10 +69,7 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
         APP_ACTIVITY.title = "Карта"
     }
 
-    private fun initView(root: View?){
-        slidingPaneLayout = root?.findViewById(R.id.mapFragment) as SlidingPaneLayout
 
-    }
 
     private fun setRestrictPlaceInCountry(lastLocation: Location) {
         try {
@@ -89,25 +85,6 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
     }
 
     private fun init(){
-        Places.initialize(requireContext(),getString(R.string.google_maps_key))
-        autocompleteSupportFragment = childFragmentManager.findFragmentById(R.id.autocomplete_fragment) as AutocompleteSupportFragment
-        autocompleteSupportFragment.setPlaceFields(
-            listOf(
-                Place.Field.ID,
-                Place.Field.ADDRESS,
-                Place.Field.LAT_LNG,
-                Place.Field.NAME)
-        )
-        autocompleteSupportFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
-            override fun onPlaceSelected(p0: Place) {
-                Snackbar.make(requireView(),""+ p0.latLng, Snackbar.LENGTH_SHORT).show()
-
-            }
-            override fun onError(p0: Status) {
-                Snackbar.make(requireView(), p0.statusMessage, Snackbar.LENGTH_SHORT).show()
-            }
-
-        })
 
         locationCallback = object : LocationCallback(){
             override fun onLocationResult(p0: LocationResult) {
@@ -150,13 +127,7 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return
         }
         googleMap.isMyLocationEnabled = true

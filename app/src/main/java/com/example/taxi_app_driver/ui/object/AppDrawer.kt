@@ -79,15 +79,7 @@ class AppDrawer(var toolbar: Toolbar) {
                     .withSelectable(false),
                 PrimaryDrawerItem().withIdentifier(101)
                     .withIconTintingEnabled(true)
-                    .withName("Способ оплаты")
-                    .withSelectable(false),
-                PrimaryDrawerItem().withIdentifier(102)
-                    .withIconTintingEnabled(true)
-                    .withName("Служба поддержки")
-                    .withSelectable(false),
-                PrimaryDrawerItem().withIdentifier(103)
-                    .withIconTintingEnabled(true)
-                    .withName("Стать водителем")
+                    .withName("Выход")
                     .withSelectable(false),
             ).withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                 override fun onItemClick(

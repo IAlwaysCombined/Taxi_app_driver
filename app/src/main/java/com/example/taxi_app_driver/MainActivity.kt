@@ -20,14 +20,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        initFirebase()
         initFields()
         initFunc()
     }
 
     private fun initFields(){
-        initUser()
         initFirebase()
+        initUser()
     }
 
     private fun initFunc(){

@@ -3,6 +3,8 @@ package com.example.taxi_app_driver.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.taxi_app_driver.databinding.ActivityAuthBinding
+import com.example.taxi_app_driver.ui.fragment.EnterPhoneFragment
+import com.example.taxi_app_driver.uitlities.replaceFragment
 
 class AuthActivity : AppCompatActivity() {
 
@@ -16,5 +18,6 @@ class AuthActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        replaceFragment(EnterPhoneFragment())
     }
 }

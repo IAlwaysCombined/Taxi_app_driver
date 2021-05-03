@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc(){
-        if (true) {
+        if (AUTH.currentUser != null) {
             replaceFragment(MapsFragment())
         }
         else{

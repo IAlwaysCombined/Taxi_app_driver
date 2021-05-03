@@ -49,6 +49,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //Maps
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
     //Firebase
     implementation 'com.google.firebase:firebase-auth:20.0.4'
     implementation 'com.google.firebase:firebase-database:19.7.0'
@@ -57,4 +62,10 @@ dependencies {
     //Drawer
     implementation "com.mikepenz:materialdrawer-nav:7.0.0"
     implementation "com.mikepenz:materialdrawer:7.0.0"
+
+    //Sliding Up
+    implementation 'com.sothree.slidinguppanel:library:3.3.1'
+
+    //Google Places
+    implementation 'com.google.android.libraries.places:places:2.4.0'
 }

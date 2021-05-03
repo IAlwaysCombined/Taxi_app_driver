@@ -6,6 +6,4 @@
     tools:context=".activity.AuthActivity"
     android:id="@+id/main_container">
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,7 +45,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
@@ -64,23 +64,23 @@ dependencies {
     implementation "com.mikepenz:materialdrawer:7.0.0"
 
     //Sliding Up
-    implementation 'com.sothree.slidinguppanel:library:3.3.1'
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
 
     //Google Places
     implementation 'com.google.android.libraries.places:places:2.4.0'
 
     //RxJava
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
 
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.6.1'
-    implementation 'com.squareup.retrofit2:adapter-rxjava:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.9.0'
 
     //EventBust
-    implementation 'com.greenrobot:eventbus:3.2.0'
+    implementation 'org.greenrobot:eventbus:3.2.0'
 
     //Progress Bar
     implementation 'com.mikhaellopez:circularprogressbar:3.0.3'

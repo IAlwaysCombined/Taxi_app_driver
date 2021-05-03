@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.example.taxi_app_driver.activity.AuthActivity
 import com.example.taxi_app_driver.databinding.ActivityMainBinding
-import com.example.taxi_app_driver.models.User
+import com.example.taxi_app_driver.models.Driver
 import com.example.taxi_app_driver.ui.`object`.AppDrawer
 import com.example.taxi_app_driver.ui.fragment.MapsFragment
 import com.example.taxi_app_driver.uitlities.*
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         appDrawer.create()
         initFirebase()
-        initUser()
+        initDriver()
     }
 
     private fun initFunc(){
@@ -46,13 +46,5 @@ class MainActivity : AppCompatActivity() {
             replaceActivity(AuthActivity())
 
         }
-    }
-
-    //Initial Users
-    private fun initUser() {
-        REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
-            .addListenerForSingleValueEvent(AppValueEventListener {
-                USER = it.getValue(User::class.java) ?: User()
-            })
     }
 }

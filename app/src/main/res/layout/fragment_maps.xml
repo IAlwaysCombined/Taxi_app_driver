@@ -22,7 +22,7 @@
         android:textColor="@color/black"
         android:background="@color/white"
         app:chipIcon="@drawable/ic_baseline_clear_24"
-        />
+        android:theme="@style/Theme.MaterialComponents.Light"/>
 
 
 </FrameLayout>

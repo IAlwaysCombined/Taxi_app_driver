@@ -12,18 +12,20 @@ lateinit var PHONE: String
 lateinit var DRIVER: Driver
 
 //Nodes
-const val NODE_USERS = "users"
-const val NODE_PHONES = "phones"
 const val NODE_DRIVER = "driver"
 
 //User const
-const val CHILD_ID = "id"
-const val CHILD_PHONE = "phone"
-const val CHILD_USERNAME = "username"
+const val NAME_DRIVER = "name_driver"
+const val LAST_NAME_DRIVER = "last_name_driver"
+const val CAR = "car"
+const val CAR_NUMBER = "car_number"
+const val SURNAME_DRIVER = "surname_driver"
+const val PHOTO_DRIVER = "photo_driver"
+const val PHONE_NUMBER = "phone_number"
+const val UID_DRIVER = "uid"
 const val CHILD_ROLE = "role"
 
 //Role user
-const val USER_ROLE = "user"
 const val DRIVER_ROLE = "driver"
 
 //Init firebase help method

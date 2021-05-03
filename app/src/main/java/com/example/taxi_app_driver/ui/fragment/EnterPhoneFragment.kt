@@ -2,6 +2,7 @@ package com.example.taxi_app_driver.ui.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.taxi_app_driver.R
 import com.example.taxi_app_driver.databinding.FragmentEnterPhoneBinding

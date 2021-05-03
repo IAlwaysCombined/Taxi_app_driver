@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         }
         else{
             replaceActivity(AuthActivity())
-
         }
     }
 }

@@ -6,18 +6,5 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.EnterPhoneFragment">
 
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:hint="Имя"
-        />
 
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:hint="Фамилия"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

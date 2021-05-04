@@ -22,7 +22,7 @@
         android:textColor="@color/black"
         android:background="@color/white"
         app:chipIcon="@drawable/ic_baseline_clear_24"
-        />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

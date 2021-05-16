@@ -2,11 +2,13 @@ package com.example.taxi_app_driver.uitlities
 
 import android.app.Activity
 import android.content.Intent
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.taxi_app_driver.MainActivity
 import com.example.taxi_app_driver.R
+import com.squareup.picasso.Picasso
 
 fun showToast(message: String) {
     Toast.makeText(APP_ACTIVITY, message, Toast.LENGTH_SHORT).show()
@@ -42,4 +44,13 @@ fun restartActivity() {
     val intent = Intent(APP_ACTIVITY, MainActivity::class.java)
     APP_ACTIVITY.startActivity(intent)
     APP_ACTIVITY.finish()
+}
+
+//Download and sat picture
+fun ImageView.downloadAndSetImage(url: String) {
+    Picasso.get()
+        .load(url)
+        .fit()
+        .placeholder(R.drawable.ic_photo)
+        .into(this)
 }

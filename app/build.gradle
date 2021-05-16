@@ -55,9 +55,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
 
     //Firebase
-    implementation 'com.google.firebase:firebase-auth:20.0.4'
-    implementation 'com.google.firebase:firebase-database:19.7.0'
-    implementation 'com.google.firebase:firebase-storage:19.2.2'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.firebase:firebase-database:20.0.0'
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
 
     //Drawer
     implementation "com.mikepenz:materialdrawer-nav:7.0.0"
@@ -84,4 +84,6 @@ dependencies {
 
     //Progress Bar
     implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

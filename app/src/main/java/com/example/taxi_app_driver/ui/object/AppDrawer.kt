@@ -1,12 +1,17 @@
 package com.example.taxi_app_driver.ui.`object`
 
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.taxi_app_driver.R
-import com.example.taxi_app_driver.uitlities.APP_ACTIVITY
-import com.example.taxi_app_driver.uitlities.PHONE
-import com.example.taxi_app_driver.uitlities.initFirebase
+import com.example.taxi_app_driver.activity.AuthActivity
+import com.example.taxi_app_driver.database.AUTH
+import com.example.taxi_app_driver.database.DRIVER
+import com.example.taxi_app_driver.database.PHONE
+import com.example.taxi_app_driver.uitlities.*
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -14,8 +19,10 @@ import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
+import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
+import com.mikepenz.materialdrawer.util.DrawerImageLoader
 
-class AppDrawer(var toolbar: Toolbar) {
+class AppDrawer(private var toolbar: Toolbar) {
 
     private lateinit var drawer: Drawer
     private lateinit var drawerLayout: DrawerLayout
@@ -24,7 +31,7 @@ class AppDrawer(var toolbar: Toolbar) {
 
     //Create and init drawer
     fun create() {
-        initFirebase()
+        initLoader()
         createHeader()
         createDrawer()
         drawerLayout = drawer.drawerLayout
@@ -48,19 +55,6 @@ class AppDrawer(var toolbar: Toolbar) {
         toolbar.setNavigationOnClickListener {
             drawer.openDrawer()
         }
-    }
-
-    //Create header
-    private fun createHeader() {
-        currentProfile = ProfileDrawerItem()
-            .withIcon(R.mipmap.ic_launcher)
-            .withEmail(PHONE)
-        header = AccountHeaderBuilder()
-            .withActivity(APP_ACTIVITY)
-            .withHeaderBackground(R.drawable.header)
-            .addProfiles(
-                currentProfile
-            ).build()
     }
 
     //Create drawer
@@ -87,9 +81,55 @@ class AppDrawer(var toolbar: Toolbar) {
                     position: Int,
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
-
+                    changeFragmentReplace(position)
                     return false
                 }
             }).build()
     }
+
+    private fun changeFragmentReplace(position: Int) {
+        when (position) {
+            2 -> {
+                APP_ACTIVITY.replaceActivity(AuthActivity())
+                AUTH.signOut()
+            }
+        }
+    }
+
+    //Create header
+    private fun createHeader() {
+        currentProfile = ProfileDrawerItem()
+            .withName(DRIVER.name_driver)
+            .withEmail(PHONE)
+            .withIcon(DRIVER.photo_driver)
+            .withIdentifier(200)
+        header = AccountHeaderBuilder()
+            .withProfileImagesClickable(false)
+            .withActivity(APP_ACTIVITY)
+            .withSelectionListEnabledForSingleProfile(false)
+            .withHeaderBackground(R.drawable.header)
+            .addProfiles(
+                currentProfile
+            ).build()
+    }
+
+    //Update header
+    fun updateHeader(){
+        currentProfile
+            .withName(DRIVER.name_driver)
+            .withEmail(DRIVER.phone_number_driver)
+            .withIcon(DRIVER.photo_driver)
+        header.updateProfile(currentProfile)
+
+    }
+
+    //Init loader for download image in header
+    private fun initLoader() {
+        DrawerImageLoader.init(object : AbstractDrawerImageLoader() {
+            override fun set(imageView: ImageView, uri: Uri, placeholder: Drawable) {
+                imageView.downloadAndSetImage(uri.toString())
+            }
+        })
+    }
+
 }

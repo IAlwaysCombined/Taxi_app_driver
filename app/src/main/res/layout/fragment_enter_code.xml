@@ -3,8 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.EnterCodeFragment">
 
+    <TextView
+        android:id="@+id/enter_code_text_view_description"
+        style="@style/change_user_data_text_view_description_style"
+        android:text="Код"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/enter_code_text_view_description_two"
+        style="@style/enter_phone_code_description_text"
+        android:text="На ваш номер телефона отправлен код"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        style="@style/change_user_data_edt_text_style"
+        android:id="@+id/enter_code_edt_text"
+        android:hint="123456"
+        android:maxLength="6"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_code_text_view_description_two" />
+
+    <Button
+        android:id="@+id/enter_code_btn_further"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/change_user_data_btn_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Далее"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

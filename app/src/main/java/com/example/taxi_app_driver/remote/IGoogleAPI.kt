@@ -1,4 +1,4 @@
-package com.example.taxi_app_driver.Remote
+package com.example.taxi_app_driver.remote
 
 import retrofit2.http.GET
 import retrofit2.http.Query

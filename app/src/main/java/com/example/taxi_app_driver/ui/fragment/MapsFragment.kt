@@ -66,7 +66,6 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
         super.onStart()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(APP_ACTIVITY)
         fetchLocation()
-        APP_ACTIVITY.title = "Карта"
     }
 
 
@@ -130,6 +129,8 @@ class MapsFragment : Fragment(R.layout.fragment_maps), OnMapReadyCallback {
 
             return
         }
+        googleMap.uiSettings.isMyLocationButtonEnabled = false
+        googleMap.isTrafficEnabled = true
         googleMap.isMyLocationEnabled = true
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng))
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17f))

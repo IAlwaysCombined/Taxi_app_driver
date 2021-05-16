@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.example.taxi_app_driver.activity.AuthActivity
+import com.example.taxi_app_driver.database.AUTH
+import com.example.taxi_app_driver.database.initDriver
+import com.example.taxi_app_driver.database.initFirebase
+import com.example.taxi_app_driver.database.initUser
 import com.example.taxi_app_driver.databinding.ActivityMainBinding
-import com.example.taxi_app_driver.models.User
 import com.example.taxi_app_driver.ui.`object`.AppDrawer
 import com.example.taxi_app_driver.ui.fragment.MapsFragment
 import com.example.taxi_app_driver.uitlities.*
@@ -21,38 +24,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         APP_ACTIVITY = this
-    }
-
-    override fun onStart() {
-        super.onStart()
-        initFields()
-        initFunc()
+        initFirebase()
+        initUser()
+        initDriver{
+            initFields()
+            initFunc()
+        }
     }
 
     private fun initFields(){
         toolbar = binding.mainToolbar
         appDrawer = AppDrawer(toolbar)
-        setSupportActionBar(toolbar)
-        appDrawer.create()
-        initFirebase()
-        initUser()
     }
 
     private fun initFunc(){
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         if (AUTH.currentUser != null) {
+            appDrawer.create()
             replaceFragment(MapsFragment())
         }
         else{
             replaceActivity(AuthActivity())
-
         }
-    }
-
-    //Initial Users
-    private fun initUser() {
-        REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
-            .addListenerForSingleValueEvent(AppValueEventListener {
-                USER = it.getValue(User::class.java) ?: User()
-            })
     }
 }

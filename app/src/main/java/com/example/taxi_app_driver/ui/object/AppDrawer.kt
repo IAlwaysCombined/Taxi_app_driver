@@ -1,5 +1,6 @@
 package com.example.taxi_app_driver.ui.`object`
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.view.View
@@ -9,17 +10,18 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.taxi_app_driver.R
 import com.example.taxi_app_driver.database.DRIVER
 import com.example.taxi_app_driver.ui.fragment.driver.end_rides.EndRidesFragment
-import com.example.taxi_app_driver.ui.fragment.driver.rides.ListRidesFragment
 import com.example.taxi_app_driver.ui.fragment.driver.my_rides.MyRidesFragment
 import com.example.taxi_app_driver.ui.fragment.driver.user.ProfileFragment
-import com.example.taxi_app_driver.uitlities.*
+import com.example.taxi_app_driver.uitlities.APP_ACTIVITY
+import com.example.taxi_app_driver.uitlities.downloadAndSetImage
+import com.example.taxi_app_driver.uitlities.replaceFragment
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
+import com.mikepenz.materialdrawer.model.interfaces.*
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
 import com.mikepenz.materialdrawer.util.DrawerImageLoader
 
@@ -59,12 +61,12 @@ class AppDrawer(private var toolbar: Toolbar) {
     }
 
     //Create drawer
+    @SuppressLint("ResourceAsColor")
     private fun createDrawer() {
         DrawerBuilder()
             .withActivity(APP_ACTIVITY)
             .withAccountHeader(header)
-            .withSliderBackgroundColorRes(R.color.white)
-            .withToolbar(toolbar)
+            .withSliderBackgroundColor(R.color.gray_600)
             .withActionBarDrawerToggle(true)
             .withSelectedItem(-1)
             .addDrawerItems(
@@ -130,7 +132,7 @@ class AppDrawer(private var toolbar: Toolbar) {
     //Init loader for download image in header
     private fun initLoader() {
         DrawerImageLoader.init(object : AbstractDrawerImageLoader() {
-            override fun set(imageView: ImageView, uri: Uri, placeholder: Drawable) {
+            override fun set(imageView: ImageView, uri: Uri, placeholder: Drawable, tag: String?) {
                 imageView.downloadAndSetImage(uri.toString())
             }
         })

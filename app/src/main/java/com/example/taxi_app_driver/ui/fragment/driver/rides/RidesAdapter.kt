@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.taxi_app_driver.R
 import com.example.taxi_app_driver.database.*
 import com.example.taxi_app_driver.models.CommonModel
+import com.example.taxi_app_driver.ui.fragment.driver.my_rides.MyRidesFragment
 import com.example.taxi_app_driver.uitlities.APP_ACTIVITY
+import com.example.taxi_app_driver.uitlities.replaceFragment
 import com.example.taxi_app_driver.uitlities.showToast
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -92,8 +94,8 @@ class RidesAdapter(private var rideList: MutableList<CommonModel>) :
                         .updateChildren(dateMap)
                         .addOnCompleteListener {
                             showToast("Заказ принят")
-                            REF_DATABASE_ROOT.child(NODE_PRE_RIDES).child(rideList[position].uid)
-                                .removeValue()
+                            REF_DATABASE_ROOT.child(NODE_PRE_RIDES).child(rideList[position].uid).removeValue()
+                            APP_ACTIVITY.replaceFragment(MyRidesFragment())
                         }
                 }
         }

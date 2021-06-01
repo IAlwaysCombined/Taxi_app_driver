@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         if (AUTH.currentUser != null) {
-            appDrawer.create()
+             appDrawer.create()
             replaceFragment(ListRidesFragment())
         }
         else{

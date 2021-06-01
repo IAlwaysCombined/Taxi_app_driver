@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.taxi_app_driver.R
 import com.example.taxi_app_driver.database.*
 import com.example.taxi_app_driver.models.CommonModel
+import com.example.taxi_app_driver.ui.fragment.driver.end_rides.EndRidesFragment
 import com.example.taxi_app_driver.uitlities.APP_ACTIVITY
+import com.example.taxi_app_driver.uitlities.replaceFragment
 import com.example.taxi_app_driver.uitlities.showToast
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -78,6 +80,7 @@ class MyRidersAdapter(private var myRideList: MutableList<CommonModel>) :
             REF_DATABASE_ROOT.child(NODE_RIDES_FOR_ADMIN).child(keyEndRides).updateChildren(dateMap)
             REF_DATABASE_ROOT.child(NODE_RIDES_DRIVER).child(UID).removeValue()
             showToast("Поездка завершена")
+            APP_ACTIVITY.replaceFragment(EndRidesFragment())
         }
         holder.distanceRide?.setOnClickListener {
             try {

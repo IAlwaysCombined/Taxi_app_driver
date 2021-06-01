@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
+    <color name="colorPrimary">#0066FF</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
@@ -12,6 +13,7 @@
     <color name="gray">#7A7A7A</color>
     <color name="light_gray">#AFAFAF</color>
     <color name="red">#FF6969</color>
+    <color name="md_red_600">#F43535</color>
     <color name="blue">#2196F3</color>
     <color name="light_blue">#A7D5FA</color>
 </resources>

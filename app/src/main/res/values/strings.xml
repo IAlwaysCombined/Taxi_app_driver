@@ -1,5 +1,24 @@
 <resources>
     <string name="app_name">Taxi_app_driver</string>
+    <!-- All apps strings -->
+    <string name="something_went_wrong_toast">Что-то пошло не так</string>
+    <string name="email">E-mail</string>
+    <string name="enter">Войти</string>
+    <!-- Auth strings -->
+    <string name="auth_text_view_description_text">Авторизация</string>
+    <string name="email_edt_text_not_filled_toast">Поле E-mail не заполнено</string>
+    <string name="password_edt_text_not_filled_toast">Поле Пароль не заполнено</string>
+    <string name="password">Пароль</string>
+    <string name="message_restore_password_send_toast">Сообщение для сброса пароля отправлено</string>
+    <string name="auth_text_view_reset_password">Восстановить пароль</string>
+    <!-- Profile strings -->
+    <string name="profile_description_text_view">Профиль</string>
+    <string name="profile_exit_btn_text">Выйти из профиля</string>
+    <string name="profile_text_view_description_phone_number">Номер телефона</string>
+    <string name="profile_text_view_description_name">Имя</string>
+    <string name="profile_text_view_description_email_email">Введите E-mail</string>
+    <string name="profile_text_view_description_name_name">Введите имя</string>
+    <string name="profile_item_driver">Профиль</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

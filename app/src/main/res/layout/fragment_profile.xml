@@ -3,8 +3,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.ProfileFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.driver.user.ProfileFragment">
 
+    <TextView
+        android:id="@+id/profile_description_text_view"
+        style="@style/text_view_upper_text"
+        android:layout_marginVertical="60dp"
+        android:text="@string/profile_description_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/main_liner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_description_text_view">
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/profile_phone_number_user_text_view_description"
+                style="@style/profile_text_view_description_data"
+                android:layout_marginStart="0dp"
+                android:text="@string/profile_text_view_description_phone_number" />
+
+            <TextView
+                android:id="@+id/profile_phone_number_user_text_view"
+                style="@style/profile_text_view_data_user"
+                android:layout_marginStart="0dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_avatar_image_view"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/profile_name_user_text_view_description"
+        style="@style/profile_text_view_description_data"
+        android:text="@string/profile_text_view_description_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_liner_layout" />
+
+    <TextView
+        android:id="@+id/profile_name_user_text_view"
+        style="@style/profile_text_view_data_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_name_user_text_view_description" />
+
+    <TextView
+        android:id="@+id/profile_email_user_text_view_description"
+        style="@style/profile_text_view_description_data"
+        android:text="@string/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_name_user_text_view" />
+
+    <TextView
+        android:id="@+id/profile_email_user_text_view"
+        style="@style/profile_text_view_data_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_email_user_text_view_description" />
+
+    <TextView
+        android:id="@+id/profile_exit_btn"
+        style="@style/profile_btn_text_exit_style"
+        android:text="@string/profile_exit_btn_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

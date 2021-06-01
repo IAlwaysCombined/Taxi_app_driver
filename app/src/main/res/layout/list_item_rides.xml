@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/card_view_style"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingConstraints">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/phone_number_rider_item_description"
+            style="@style/description_data_text_view_style"
+            android:text="Номер телефона"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/phone_number_rider_item"
+            style="@style/data_text_view_style"
+            android:text="+380444618061"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_number_rider_item_description" />
+
+        <View
+            style="@style/under_line_view_style"
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_number_rider_item" />
+
+        <TextView
+            android:id="@+id/pay_method_item_description"
+            style="@style/description_data_text_view_style"
+            android:text="Способ оплаты"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_number_rider_item" />
+
+        <TextView
+            android:id="@+id/pay_method_item"
+            style="@style/data_text_view_style"
+            android:text="G pay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pay_method_item_description" />
+
+        <View
+            style="@style/under_line_view_style"
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pay_method_item" />
+
+        <TextView
+            android:id="@+id/coast_ride_item_description"
+            style="@style/description_data_text_view_style"
+            android:text="Стоимость"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pay_method_item" />
+
+        <TextView
+            android:id="@+id/coast_ride_item"
+            style="@style/data_text_view_style"
+            android:text="350"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coast_ride_item_description" />
+
+        <View
+            style="@style/under_line_view_style"
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coast_ride_item" />
+
+        <TextView
+            android:id="@+id/name_rider_item_description"
+            style="@style/description_data_text_view_style"
+            android:text="Имя"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coast_ride_item" />
+
+        <TextView
+            android:id="@+id/name_rider_item"
+            style="@style/data_text_view_style"
+            android:text="Андрей"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_rider_item_description" />
+
+        <View
+            android:id="@+id/view2"
+            style="@style/under_line_view_style"
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_rider_item" />
+
+        <TextView
+            android:id="@+id/start_location_item_description"
+            style="@style/description_data_text_view_style"
+            android:text="Точка отправления"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_rider_item" />
+
+        <TextView
+            android:id="@+id/start_location_item"
+            style="@style/data_text_view_style"
+            android:text="Проспект победы 16 к 3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/start_location_item_description" />
+
+        <View
+            android:id="@+id/view3"
+            style="@style/under_line_view_style"
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/start_location_item" />
+
+        <TextView
+            android:id="@+id/end_location_item_description"
+            style="@style/description_data_text_view_style"
+            android:text="Точка назначения"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/start_location_item" />
+
+        <TextView
+            android:id="@+id/end_location_item"
+            style="@style/data_text_view_style"
+            android:text="Комсомольский проспект 20 к 2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/end_location_item_description" />
+
+        <View
+            style="@style/under_line_view_style"
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/end_location_item" />
+
+        <TextView
+            android:id="@+id/stop_location_item_description"
+            style="@style/description_data_text_view_style"
+            android:text="Остановиться"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/end_location_item" />
+
+        <TextView
+            android:id="@+id/stop_location_item"
+            style="@style/data_text_view_style"
+            android:text="Комсомольский проспект 12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stop_location_item_description" />
+
+        <LinearLayout
+            android:id="@+id/linear_button_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stop_location_item">
+
+            <Button
+                android:id="@+id/accept_ride"
+                style="@style/btn_style"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Принять"
+                android:textSize="15sp"
+                tools:ignore="SmallSp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_button_1">
+
+            <Button
+                android:id="@+id/route_ride"
+                style="@style/btn_style"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Маршрут до пользователя"
+                android:textSize="13sp"
+                tools:ignore="SmallSp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

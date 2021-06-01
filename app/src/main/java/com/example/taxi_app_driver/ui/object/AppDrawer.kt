@@ -7,10 +7,11 @@ import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.taxi_app_driver.R
-import com.example.taxi_app_driver.activity.AuthActivity
-import com.example.taxi_app_driver.database.AUTH
 import com.example.taxi_app_driver.database.DRIVER
-import com.example.taxi_app_driver.database.PHONE
+import com.example.taxi_app_driver.ui.fragment.driver.end_rides.EndRidesFragment
+import com.example.taxi_app_driver.ui.fragment.driver.rides.ListRidesFragment
+import com.example.taxi_app_driver.ui.fragment.driver.my_rides.MyRidesFragment
+import com.example.taxi_app_driver.ui.fragment.driver.user.ProfileFragment
 import com.example.taxi_app_driver.uitlities.*
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
@@ -59,7 +60,7 @@ class AppDrawer(private var toolbar: Toolbar) {
 
     //Create drawer
     private fun createDrawer() {
-        drawer = DrawerBuilder()
+        DrawerBuilder()
             .withActivity(APP_ACTIVITY)
             .withAccountHeader(header)
             .withSliderBackgroundColorRes(R.color.white)
@@ -69,12 +70,16 @@ class AppDrawer(private var toolbar: Toolbar) {
             .addDrawerItems(
                 PrimaryDrawerItem().withIdentifier(100)
                     .withIconTintingEnabled(true)
-                    .withName("Профиль")
+                    .withName(APP_ACTIVITY.getString(R.string.profile_item_driver))
                     .withSelectable(false),
-                PrimaryDrawerItem().withIdentifier(101)
+                PrimaryDrawerItem().withIdentifier(102)
                     .withIconTintingEnabled(true)
-                    .withName("Выход")
+                    .withName("Мои заказы")
                     .withSelectable(false),
+                PrimaryDrawerItem().withIdentifier(103)
+                    .withIconTintingEnabled(true)
+                    .withName("Оконченные заказы")
+                    .withSelectable(false)
             ).withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                 override fun onItemClick(
                     view: View?,
@@ -84,15 +89,14 @@ class AppDrawer(private var toolbar: Toolbar) {
                     changeFragmentReplace(position)
                     return false
                 }
-            }).build()
+            }).build().also { drawer = it }
     }
 
     private fun changeFragmentReplace(position: Int) {
         when (position) {
-            2 -> {
-                APP_ACTIVITY.replaceActivity(AuthActivity())
-                AUTH.signOut()
-            }
+            1 -> APP_ACTIVITY.replaceFragment(ProfileFragment())
+            2 -> APP_ACTIVITY.replaceFragment(MyRidesFragment())
+            3 -> APP_ACTIVITY.replaceFragment(EndRidesFragment())
         }
     }
 
@@ -100,7 +104,7 @@ class AppDrawer(private var toolbar: Toolbar) {
     private fun createHeader() {
         currentProfile = ProfileDrawerItem()
             .withName(DRIVER.name_driver)
-            .withEmail(PHONE)
+            .withEmail(DRIVER.phone_number_driver)
             .withIcon(DRIVER.photo_driver)
             .withIdentifier(200)
         header = AccountHeaderBuilder()
@@ -131,5 +135,4 @@ class AppDrawer(private var toolbar: Toolbar) {
             }
         })
     }
-
 }

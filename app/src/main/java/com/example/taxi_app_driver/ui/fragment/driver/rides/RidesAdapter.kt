@@ -80,8 +80,7 @@ class RidesAdapter(private var rideList: MutableList<CommonModel>) :
             dateMap[CHILD_PHONE_DRIVER] = DRIVER.phone_number_driver
             dateMap[CHILD_PHOTO_DRIVER] = DRIVER.photo_driver
 
-            val keyRidesDriver =
-                REF_DATABASE_ROOT.child(NODE_RIDES).child(UID).push().key.toString()
+            val keyRidesDriver = REF_DATABASE_ROOT.child(NODE_RIDES).child(UID).push().key.toString()
             REF_DATABASE_ROOT.child(NODE_RIDES_DRIVER).child(UID).child(keyRidesDriver)
                 .updateChildren(dateMap)
                 .addOnCompleteListener {
@@ -100,27 +99,17 @@ class RidesAdapter(private var rideList: MutableList<CommonModel>) :
         }
         holder.routeRiderRide?.setOnClickListener {
             try {
-                val uri =
-                    Uri.parse("https://www.google.co.in/maps/dir/" + locationUser + "/" + rideList[position].start_ride)
-
+                val uri = Uri.parse("https://www.google.co.in/maps/dir/" + locationUser + "/" + rideList[position].start_ride)
                 val intent = Intent(Intent.ACTION_VIEW, uri)
-
                 intent.setPackage("com.google.android.apps.maps")
-
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-
                 APP_ACTIVITY.startActivity(intent)
 
             } catch (e: ActivityNotFoundException) {
-                val uri =
-                    Uri.parse("https://play.google.com/store/apps/detalis?id=com.google.android.apps.maps")
-
+                val uri = Uri.parse("https://play.google.com/store/apps/detalis?id=com.google.android.apps.maps")
                 val intent = Intent(Intent.ACTION_VIEW, uri)
-
                 intent.setPackage("com.google.android.apps.maps")
-
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-
                 APP_ACTIVITY.startActivity(intent)
             }
         }

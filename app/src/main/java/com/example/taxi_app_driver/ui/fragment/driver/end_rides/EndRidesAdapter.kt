@@ -39,7 +39,6 @@ class EndRidesAdapter(private var endRideList: MutableList<CommonModel>):
 
     override fun getItemCount() = endRideList.size
 
-
     fun setList(list: List<CommonModel>) {
         endRideList = list as MutableList<CommonModel>
         notifyDataSetChanged()

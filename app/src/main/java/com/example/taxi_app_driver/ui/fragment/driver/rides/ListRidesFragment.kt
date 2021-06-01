@@ -1,12 +1,7 @@
 package com.example.taxi_app_driver.ui.fragment.driver.rides
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.location.Location
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taxi_app_driver.R
@@ -15,15 +10,8 @@ import com.example.taxi_app_driver.database.REF_DATABASE_ROOT
 import com.example.taxi_app_driver.database.getCommonModel
 import com.example.taxi_app_driver.databinding.FragmentListRidesBinding
 import com.example.taxi_app_driver.models.CommonModel
-import com.example.taxi_app_driver.uitlities.APP_ACTIVITY
 import com.example.taxi_app_driver.uitlities.AppValueEventListener
-import com.example.taxi_app_driver.uitlities.showToast
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.DatabaseReference
-import com.mikepenz.iconics.Iconics.applicationContext
 
 @Suppress("DEPRECATION")
 class ListRidesFragment : Fragment(R.layout.fragment_list_rides) {
